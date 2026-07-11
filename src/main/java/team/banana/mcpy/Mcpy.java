@@ -1,10 +1,8 @@
 package team.banana.mcpy;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import team.banana.mcpy.listeners.ChatBridgeListener;
 import team.banana.mcpy.listeners.McpyTabCompleter;
 import team.banana.mcpy.listeners.SignalListener;
 import team.banana.mcpy.managers.ScriptManager;
@@ -36,7 +34,8 @@ public final class Mcpy extends JavaPlugin {
         updateChecker.checkAsync();
 
         getServer().getPluginManager().registerEvents(new SignalListener(), this);
-        getServer().getPluginManager().registerEvents(new ChatBridgeListener(this), this);
+        // 채팅/접속/퇴장/사망/계정연동은 전부 Skript(.sk)의
+        // "send mcpy signal ..." / "on mcpy signal received"로 처리한다.
 
         if (getCommand("mcpy") != null) {
             getCommand("mcpy").setTabCompleter(new McpyTabCompleter(this));
@@ -108,6 +107,7 @@ public final class Mcpy extends JavaPlugin {
         sender.sendMessage("§7/mcpy list §f- 실행 중인 스크립트 목록");
         sender.sendMessage("§7/mcpy reload §f- 설정 리로드");
         sender.sendMessage("§7/mcpy update §f- 새 버전 확인");
+        sender.sendMessage("§7/mcpylink §f- 디스코드 계정 연동 (Skript 명령어)");
     }
 
     public ScriptManager getScriptManager() {
