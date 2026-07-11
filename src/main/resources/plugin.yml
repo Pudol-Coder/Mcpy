@@ -1,0 +1,19 @@
+name: Mcpy
+version: 1.0
+main: team.banana.mcpy.Mcpy
+# 1.21.11(구버전 체계)과 26.1.x(신버전 체계) 서버 양쪽에서 로드되도록 낮게 유지.
+# 26.1 이상으로 올리면 1.21.11 서버가 로드를 거부할 수 있음.
+api-version: '1.21'
+author: Banana
+description: Minecraft <-> Python 양방향 통신 및 스크립트 관리 플러그인
+
+commands:
+  mcpy:
+    description: Mcpy 메인 명령어
+    usage: |
+      /mcpy start <파일명> - 파이썬 스크립트 실행
+      /mcpy stop <파일명> - 실행 중인 스크립트 종료
+      /mcpy list - 실행 중인 스크립트 목록
+      /mcpy reload - 설정 리로드
+      /mcpy update - 새 버전 확인
+      /mcpy update download - 새 jar 다운로드 (재시작 후 적용)
