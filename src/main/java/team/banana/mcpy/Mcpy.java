@@ -4,10 +4,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import team.banana.mcpy.listeners.ChatBridgeListener;
 import team.banana.mcpy.listeners.McpyTabCompleter;
 import team.banana.mcpy.listeners.SignalListener;
 import team.banana.mcpy.managers.ScriptManager;
 import team.banana.mcpy.managers.SignalManager;
+import team.banana.mcpy.skript.SkriptHook;
 import team.banana.mcpy.utils.UpdateChecker;
 
 public final class Mcpy extends JavaPlugin {
@@ -34,10 +36,13 @@ public final class Mcpy extends JavaPlugin {
         updateChecker.checkAsync();
 
         getServer().getPluginManager().registerEvents(new SignalListener(), this);
+        getServer().getPluginManager().registerEvents(new ChatBridgeListener(this), this);
 
         if (getCommand("mcpy") != null) {
             getCommand("mcpy").setTabCompleter(new McpyTabCompleter(this));
         }
+
+        SkriptHook.hook(this);
 
         getLogger().info("Mcpy가 활성화되었습니다.");
     }

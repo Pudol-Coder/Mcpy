@@ -6,7 +6,7 @@
 
     <groupId>team.banana</groupId>
     <artifactId>Mcpy</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -21,6 +21,11 @@
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>skript-releases</id>
+            <name>Skript Repository</name>
+            <url>https://repo.skriptlang.org/releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -30,7 +35,12 @@
             <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <!-- GitHub 릴리즈 확인용 JSON 파싱 (Gson은 Paper API에 이미 내장되어 있어 별도 shading 불필요) -->
+        <dependency>
+            <groupId>com.github.SkriptLang</groupId>
+            <artifactId>Skript</artifactId>
+            <version>2.15.4</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
