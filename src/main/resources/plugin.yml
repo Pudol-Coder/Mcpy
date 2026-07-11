@@ -1,5 +1,5 @@
 name: Mcpy
-version: 1.0
+version: 1.1
 main: team.banana.mcpy.Mcpy
 # 1.21.11(구버전 체계)과 26.1.x(신버전 체계) 서버 양쪽에서 로드되도록 낮게 유지.
 # 26.1 이상으로 올리면 1.21.11 서버가 로드를 거부할 수 있음.
